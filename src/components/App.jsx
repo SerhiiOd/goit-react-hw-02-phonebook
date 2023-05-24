@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import { Container, Section, Title } from './App.styled';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
+import Filter from './Filter/Filter';
 
 class App extends Component {
   state = {
@@ -17,7 +18,6 @@ class App extends Component {
     number: '',
   };
 
-  // Добавляет контакт в список
   addContact = ({ name, number }) => {
     this.setState(({ contacts }) => ({
       contacts: [{ name, number, id: nanoid() }, ...contacts],
@@ -34,6 +34,7 @@ class App extends Component {
 
         <Section title="Contacts">
           <Title>Contacts</Title>
+          <Filter value={this.filter} onChange={this.handleFilter} />
           <ContactList contacts={this.state.contacts} />
         </Section>
       </Container>
