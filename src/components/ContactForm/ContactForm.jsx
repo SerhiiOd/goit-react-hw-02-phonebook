@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {
   FormBlock,
   InputBlock,
-  LabelInfo,
+  InputLabel,
   Input,
   Button,
 } from './ContactForm.styled';
@@ -43,7 +43,7 @@ class ContactForm extends Component {
     return (
       <FormBlock onSubmit={this.handleSubmit}>
         <InputBlock>
-          <LabelInfo htmlFor={this.nameInputId}>
+          <InputLabel htmlFor={this.nameInputId}>
             Name
             <Input
               type="text"
@@ -54,10 +54,11 @@ class ContactForm extends Component {
               value={this.state.name}
               onChange={this.handleInputChange}
               id={this.nameInputId}
+              placeholder="Name"
             />
-          </LabelInfo>
+          </InputLabel>
 
-          <LabelInfo htmlFor={this.numberInputId}>
+          <InputLabel htmlFor={this.numberInputId}>
             Number
             <Input
               type="tel"
@@ -68,8 +69,9 @@ class ContactForm extends Component {
               value={this.state.number}
               onChange={this.handleInputChange}
               id={this.numberInputId}
+              placeholder="+0-00-00-00"
             />
-          </LabelInfo>
+          </InputLabel>
         </InputBlock>
 
         <Button type="submit">Add contact</Button>
